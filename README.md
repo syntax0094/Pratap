@@ -28,7 +28,7 @@ GURU-BOT- Simple Multi Device whatsapp bot.
 
 2. Scan the QR and upload guru.data.json to your fork(will recieve it on your bot number after scanning)
     <br>
-<a href='https://frequentsardonicstatistics.guru322.repl.co' target="_blank"><img alt='SCAN QR' src='https://img.shields.io/badge/Scan_qr-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://gurubotqr.cleverapps.io' target="_main"><img alt='SCAN QR' src='https://img.shields.io/badge/Scan_qr-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 #### DEPLOY TO COOLIFY (server overloaded right now)
 
