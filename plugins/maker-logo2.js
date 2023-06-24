@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-	
+	let response = args.join(' ').split('|')
    let tee = `✳️ Enter a short text\n\n📌 Example  : *${usedPrefix + command}* GURU`
    let too = `✳️ Separate the text with a *+* \n\n📌 Example : \n*${usedPrefix + command}* GURU *+* BOT`
     m.react(rwait)
@@ -8,7 +8,7 @@ switch (type) {
 	
 	case 'gfx1':
 	if (!text) throw tee 
-	let chut = global.API('logo', '/api/canvas/kaneki?name', { text }, 'apikey=${shizokeys}')
+	let chut = global.API('logo', '/api/canvas/kaneki?name=${response[0]}&apikey=${shizokeys}')
 	conn.sendFile(m.chat, chut, 'logo.png', `✅ Result`, m)
 	m.react(done)
 	break
