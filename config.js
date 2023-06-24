@@ -34,7 +34,7 @@ global.APIs = { // API Prefix
   akuari2: 'https://apimu.my.id',
   nrtm: 'https://fg-nrtm.ddns.net',
   bg: 'http://bochil.ddns.net',
-  fgmods: 'https://api-fgmods.ddns.net'
+  fgmods: 'https://api-fgmods.ddns.net',
    logo: 'https://oni-chan.my.id'
 }
 global.APIKeys = { // APIKey Here
