@@ -58,7 +58,8 @@ global.fgsc = 'https://GitHub.com'
 global.fgyt = 'https://youtube.com/@samcreation8299'
 global.fgpyp = 'https://youtube.com/@samcreation8299'
 global.fglog = 'https://raw.githubusercontent.com/Guru322/api/Guru/guru.jpg' 
-
+global.shizokeys = 'shizo'
+global.piesmsg = '_Pies 🥵💦_'
 
 global.wait = '*⌛ _Charging..._*\n*▰▰▰▱▱▱▱▱*'
 global.rwait = '⌛'
