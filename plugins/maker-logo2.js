@@ -1,6 +1,6 @@
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-	let tee = `✳️ Enter a short text\n\n📌 Example  : *${usedPrefix + command}* Syntax`
-	let too = `✳️ Separate the text with a *+* \n\n📌 Example : \n*${usedPrefix + command}* syntax *+* BOT`
+	let tee = `✳️ Enter a short text\n\n📌 Example  : *${usedPrefix + command}* GURU`
+	let too = `✳️ Separate the text with a *+* \n\n📌 Example : \n*${usedPrefix + command}* GURU *+* BOT`
 	
 	m.react(rwait);
 	
@@ -99,7 +99,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   };
   
   handler.help = ['gfx1', 'gfx2', 'gfx3', 'gfx4', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'gfx11', 'gfx12'];
-  handler.tags = ['maker,'vip'];
+  handler.tags = ['maker'];
   handler.command = /^(gfx1|gfx2|gfx3|gfx4|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|gfx11|gfx12)$/i;
   handler.diamond = false;
   
