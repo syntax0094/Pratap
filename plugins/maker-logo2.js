@@ -8,7 +8,7 @@ switch (type) {
 	
 	case 'gfx1':
 	if (!text) throw tee 
-	let chut = global.API('logo', '/api/canvas/kaneki', { text }, 'apikey')
+	let chut = global.API('logo', '/api/canvas/kaneki?name', { text }, 'apikey')
 	conn.sendFile(m.chat, chut, 'logo.png', `✅ Result`, m)
 	m.react(done)
 	break
