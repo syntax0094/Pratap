@@ -8,7 +8,7 @@ switch (type) {
 	
 	case 'gfx1':
 	if (!text) throw tee 
-	let chut = global.API('fgmods', '/api/kaneki', { text }, 'apikey')
+	let chut = global.API('logo', '/api/canvas/kaneki', { text }, 'apikey')
 	conn.sendFile(m.chat, chut, 'logo.png', `✅ Result`, m)
 	m.react(done)
 	break
@@ -16,19 +16,19 @@ switch (type) {
 	if (!text) throw too
 	if (!text.includes('+')) throw too  
 	let [a, b] = text.split`+`   
-	let loda = global.API('fgmods', '/api/girlneko', { text: a, text2: b}, 'apikey')
+	let loda = global.API('logo', '/api/girlneko', { text: a, text2: b}, 'apikey')
 	conn.sendFile(m.chat, loda, 'logo.png', `✅ Result`, m)
 	m.react(done)
 	break 
 	case 'gfx3':
 	if (!text) throw tee 
-	let cp = global.API('fgmods', '/api/rem', { text }, 'apikey')
+	let cp = global.API('logo', '/api/rem', { text }, 'apikey')
 	conn.sendFile(m.chat, cp, 'logo.png', `✅ Result`, m)
 	m.react(done)
 	break 	
         case 'gfx4': 
    if (!text) throw tee
-   let gandu = global.API('fgmods', '/api/sadboy', { text: 'GURU', text2: text}, 'apikey')
+   let gandu = global.API('logo', '/api/sadboy', { text: 'GURU', text2: text}, 'apikey')
 	conn.sendFile(m.chat, gandu, 'logo.png', `✅ Result`, m)
 	m.react(done)
 	break 
