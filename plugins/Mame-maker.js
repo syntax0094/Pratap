@@ -93,9 +93,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 	} 
   };
   
-  handler.help = ['pikachu', 'drake', 'unforgivable', 'sadcat', 'gfx5', 'gfx6', 'gfx7', 'alert', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
-  handler.tags = ['m'];
-  handler.command = /^(pikachu|drake|unforgivable|sadcat|gfx5|gfx6|gfx7|alert|gfx9|gfx10|pooh|gfx12)$/i;
+  handler.help = ['pikachu', 'drake', 'unforgivable', 'sadcat', 'alert', 'pooh'];
+  handler.tags = ['meme-maker'];
+  handler.command = /^(pikachu|drake|unforgivable|sadcat|alert|pooh)$/i;
   handler.diamond = false;
   
   export default handler;
