@@ -34,7 +34,7 @@ let handler = async (m { conn command usedPrefix }) => {
 // Set handler properties
 handler.help = ['setppfull'];
 handler.tags = ['owner'];
-handler.command = /^setppfull$/i;
+handler.command = ['loda'];
 
 // Export the handler
 export default handler;
