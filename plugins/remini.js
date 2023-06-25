@@ -2,17 +2,17 @@ import fetch from "node-fetch";
 import uploadImage from "../lib/uploadImage.js";
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-	//    return m.reply("Maaf, fitur sedang di perbaiki");
+	//    return m.reply("Sorry, the feature is being fixed");
 	conn.unblur_high = conn.unblur_high ? conn.unblur_high : {};
 	if (m.sender in conn.unblur_high)
 		throw "Masih Ada Yang Belum Selesai, Mohon Tunggu";
 	let q = m.quoted ? m.quoted : m;
 	let mime = (q.msg || q).mimetype || q.mediaType || "";
 	if (!mime)
-		throw `Fotonya Mana?`;
+		throw `Where is the picture?`;
 	if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`;
 	else conn.unblur_high[m.sender] = true;
-	m.reply("Sedang Di Proses...");
+	m.reply("Proses...");
 	let img = await q.download?.();
 	let upld = await uploadImage(img);
 	let img2;
@@ -22,9 +22,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 		);
 		if (img2.status == false) throw "Request False";
 		let image = await img2.arrayBuffer();
-		conn.sendFile(m.chat, image, "", "Sudah Selesai Kak ```>_<```", m);
+		conn.sendFile(m.chat, image, "", "It's done bro ```>_<```", m);
 	} catch {
-		m.reply("Proses Gagal :(");
+		m.reply("Failed Process :(");
 		// delete conn.unblur[m.sender]
 	} finally {
 		delete conn.unblur_high[m.sender];
