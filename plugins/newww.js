@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 		m.react(done);
 		break;
 		
-	  case 'darke': 
+	  case 'drake': 
 		if (!text) throw too;
 		if (!text.includes('+')) throw too;
 		let [a, b] = text.split('+');
@@ -93,9 +93,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 	} 
   };
   
-  handler.help = ['pikachu', 'darke', 'unforgivable', 'sadcat', 'gfx5', 'gfx6', 'gfx7', 'alert', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
+  handler.help = ['pikachu', 'drake', 'unforgivable', 'sadcat', 'gfx5', 'gfx6', 'gfx7', 'alert', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
   handler.tags = ['m'];
-  handler.command = /^(pikachu|darke|unforgivable|sadcat|gfx5|gfx6|gfx7|alert|gfx9|gfx10|pooh|gfx12)$/i;
+  handler.command = /^(pikachu|drake|unforgivable|sadcat|gfx5|gfx6|gfx7|alert|gfx9|gfx10|pooh|gfx12)$/i;
   handler.diamond = false;
   
   export default handler;
