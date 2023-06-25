@@ -137,7 +137,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 			break;
 	}
 };
-handler.help = ['hd', 'hdr', 'unblur', 'colorize', 'colorizer', 'enhance', 'enhancer']
+handler.help = ['hd', 'hdr', 'unblur', 'colorize', 'colorizer', 'enhance', 'enhancer','dehaze','recolor' ,'enhance']
 handler.tags = ["ai"];
 handler.premium = true;
 handler.command = ["hd"];
