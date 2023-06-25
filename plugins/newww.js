@@ -32,9 +32,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 		m.react(done);
 		break;
 		
-	  case 'gfx4': 
+	  case 'sadcat': 
 		if (!text) throw tee;
-		let gandu = `https://oni-chan.my.id/api/canvas/gura?name=${encodeURIComponent(text)}&apikey=Y`;
+		let gandu = `https://api.popcat.xyz/sadcat?text=${encodeURIComponent(text)}&apikey=Y`;
 		conn.sendFile(m.chat, gandu, 'logo.png', `✅ Result`, m);
 		m.react(done);
 		break;
@@ -99,9 +99,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 	} 
   };
   
-  handler.help = ['pikachu', 'darke', 'unforgivable', 'gfx4', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
+  handler.help = ['pikachu', 'darke', 'unforgivable', 'sadcat', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
   handler.tags = ['m'];
-  handler.command = /^(pikachu|darke|unforgivable|gfx4|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|pooh|gfx12)$/i;
+  handler.command = /^(pikachu|darke|unforgivable|cadcat|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|pooh|gfx12)$/i;
   handler.diamond = false;
   
   export default handler;
