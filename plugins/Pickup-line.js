@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 let handler  = async (m, { conn }) => {
     let shizokeys = 'shizo'	
-  let res = await fetch(`https://api.popcat.xyz/pickuplines=${shizokeys}`)
+  let res = await fetch(`https://api.popcat.xyz/pickuplines`)
   if (!res.ok) throw await res.text()
 	    let json = await res.json()
 
