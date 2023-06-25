@@ -35,7 +35,8 @@ global.APIs = { // API Prefix
   nrtm: 'https://fg-nrtm.ddns.net',
   bg: 'http://bochil.ddns.net',
   fgmods: 'https://api-fgmods.ddns.net',
-   logo: 'https://oni-chan.my.id'
+   logo: 'https://oni-chan.my.id',
+  rose: 'https://api.itsrose.site'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
