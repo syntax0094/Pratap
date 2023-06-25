@@ -1,29 +1,20 @@
-
 import didyoumean from 'didyoumean'
 import similarity from 'similarity'
-//import { plugins } from '../lib/plugins.js'
-
-export async function before(m, { conn, match, usedPrefix, command }) {
-	
-	     if ((usedPrefix = (match[0] || '')[0])) {
+export async function before(m, { match, usedPrefix, command }) {
+        let pp = `https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=inferno-logo&doScale=false&scaleWidth=400&scaleHeight=400&fontsize=50&fillTextType=0&backgroundColor=black&text=syntax?`
+	if ((usedPrefix = (match[0] || '')[0])) {
 		let noPrefix = m.text.replace(usedPrefix, '')
 		let args = noPrefix.trim().split` `.slice(1)
 		let text = args.join` `
 		let help = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
-	       if (help.includes(noPrefix)) return
+	if (help.includes(noPrefix)) return
 		let mean = didyoumean(noPrefix, help)
 		let sim = similarity(noPrefix, mean)
 		let som = sim * 100
 		let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 		let name = await conn.getName(who)
-		let caption = `
-🧿  Hello @${who.split("@")[0]}
-
-maybe you meant : 
-
- இ *${usedPrefix + mean}*
- இ *Similarity:* _${parseInt(som)}%_`
- if (mean) this.sendButton(m.chat, caption, igfg, null, m, { mentions: [who]})
-	    }
+		let caption = `🌚‘‹ Hallo @${who.split("@")[0]},\n\n are you looking for *${usedPrefix + mean}* ?\n\n Results of Similarities  *${parseInt(som)}%*\n\nBot by syntax `
+	if (mean) this.sendFile(m.chat, pp, null, caption, m, { mentions: this.parseMention(caption) })
+	}
 }
 export const disabled = false
