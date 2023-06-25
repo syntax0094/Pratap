@@ -52,18 +52,12 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 	conn.sendFile(m.chat, lo, 'logo.png', `✅ Result`, m)
 	m.react(done)
 	break 
-	case 'gfx7': 
-	if (!text) throw too;
-	if (!text.includes('+')) throw too;
-	let [e, f] = text.split('+');
-	let oda = `https://api.lolhuman.xyz/api/photooxy2/battlefield4?apikey=${lolkeysapi}&text1=${encodeURIComponent(e.trim())}&text2=${encodeURIComponent(f.trim())}`;
-	conn.sendFile(m.chat, oda, 'logo.png', `✅ Result`, m);
 	
-	m.react(done);
+	
 	break 
-	case 'gfx8': 
+	case 'alert': 
 	if (!text) throw tee;
-	let rand = `https://api.lolhuman.xyz/api/ephoto1/anonymhacker?apikey=${lolkeysapi}&text=${encodeURIComponent(text)}`;
+	let rand = `https://api.popcat.xyz/alert?text=${encodeURIComponent(text)}`;
 	conn.sendFile(m.chat, rand, 'logo.png', `✅ Result`, m);
 	m.react(done);
 	break;
@@ -99,9 +93,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 	} 
   };
   
-  handler.help = ['pikachu', 'darke', 'unforgivable', 'sadcat', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
+  handler.help = ['pikachu', 'darke', 'unforgivable', 'sadcat', 'gfx5', 'gfx6', 'gfx7', 'alert', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
   handler.tags = ['m'];
-  handler.command = /^(pikachu|darke|unforgivable|sadcat|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|pooh|gfx12)$/i;
+  handler.command = /^(pikachu|darke|unforgivable|sadcat|gfx5|gfx6|gfx7|alert|gfx9|gfx10|pooh|gfx12)$/i;
   handler.diamond = false;
   
   export default handler;
