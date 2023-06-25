@@ -25,9 +25,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 		m.react(done);
 		break;
 		
-	  case 'gfx3':
+	  case 'unforgivable':
 		if (!text) throw tee;
-		let cp = `https://oni-chan.my.id/api/canvas/loliGgo?name=${encodeURIComponent(text.trim())}&apikey=Y`;
+		let cp = `https://api.popcat.xyz/unforgivable?text=${encodeURIComponent(text.trim())}&apikey=Y`;
 		conn.sendFile(m.chat, cp, 'logo.png', `✅ Result`, m);
 		m.react(done);
 		break;
@@ -99,9 +99,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 	} 
   };
   
-  handler.help = ['pikachu', 'darke', 'gfx3', 'gfx4', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
+  handler.help = ['pikachu', 'darke', 'unforgivable', 'gfx4', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
   handler.tags = ['m'];
-  handler.command = /^(pikachu|darke|gfx3|gfx4|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|pooh|gfx12)$/i;
+  handler.command = /^(pikachu|darke|unforgivable|gfx4|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|pooh|gfx12)$/i;
   handler.diamond = false;
   
   export default handler;
