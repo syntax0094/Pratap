@@ -35,6 +35,9 @@ let handler = async (m { conn command usedPrefix }) => {
 handler.help = ['setppfull'];
 handler.tags = ['owner'];
 handler.command = ['loda'];
+handler.group = true
+handler.admin = true
+ handler.botAdmin = true
 
 // Export the handler
 export default handler;
