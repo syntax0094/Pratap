@@ -57,16 +57,16 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let q = m.quoted ? m.quoted : m;
 				let mime = (q.msg || q).mimetype || q.mediaType || "";
 				if (!mime)
-					throw `Fotonya Mana Kak?`;
+					throw `Where's the photo sis?`;
 				if (!/image\/(jpe?g|png)/.test(mime))
-					throw `Mime ${mime} tidak support`;
+					throw ` ${mime} keep support`;
 				else conn.enhancer[m.sender] = true;
 				m.reply("Proses Kak...");
 				let img = await q.download?.();
 				let error;
 				try {
 					const This = await processing(img, "enhance");
-					conn.sendFile(m.chat, This, "", "Sudah Jadi Kak >//<", m);
+					conn.sendFile(m.chat, This, "", "It's done bro >//<", m);
 				} catch (er) {
 					error = true;
 				} finally {
@@ -82,11 +82,11 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 			{
 				conn.recolor = conn.recolor ? conn.recolor : {};
 				if (m.sender in conn.recolor)
-					throw "Masih Ada Proses Yang Belum Selesai Kak, Silahkan Tunggu Sampai Selesai Yah >//<";
+					throw "There are still unfinished processes, sis, please wait until it's finished >//<";
 				let q = m.quoted ? m.quoted : m;
 				let mime = (q.msg || q).mimetype || q.mediaType || "";
 				if (!mime)
-					throw `Fotonya Mana Kak?`;
+					throw `Where's the photo sis?`;
 				if (!/image\/(jpe?g|png)/.test(mime))
 					throw `Mime ${mime} tidak support`;
 				else conn.recolor[m.sender] = true;
@@ -95,7 +95,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let error;
 				try {
 					const This = await processing(img, "enhance");
-					conn.sendFile(m.chat, This, "", "Sudah Jadi Kak >//<", m);
+					conn.sendFile(m.chat, This, "", "It's done bro >//<", m);
 				} catch (er) {
 					error = true;
 				} finally {
@@ -111,11 +111,11 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 			{
 				conn.hdr = conn.hdr ? conn.hdr : {};
 				if (m.sender in conn.hdr)
-					throw "Masih Ada Proses Yang Belum Selesai Kak, Silahkan Tunggu Sampai Selesai Yah >//<";
+					throw "There are still unfinished processes, sis, please wait until it's finished >//<";
 				let q = m.quoted ? m.quoted : m;
 				let mime = (q.msg || q).mimetype || q.mediaType || "";
 				if (!mime)
-					throw `Fotonya Mana Kak?`;
+					throw `Where's the photo sis?`;
 				if (!/image\/(jpe?g|png)/.test(mime))
 					throw `Mime ${mime} tidak support`;
 				else conn.hdr[m.sender] = true;
@@ -124,12 +124,12 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let error;
 				try {
 					const This = await processing(img, "enhance");
-					conn.sendFile(m.chat, This, "", "Sudah Jadi Kak >//<", m);
+					conn.sendFile(m.chat, This, "", "It's done bro >//<", m);
 				} catch (er) {
 					error = true;
 				} finally {
 					if (error) {
-						m.reply("Proses Gagal :(");
+						m.reply("Failed Process :(");
 					}
 					delete conn.hdr[m.sender];
 				}
@@ -137,9 +137,10 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 			break;
 	}
 };
-handler.help = ["hd"];
+handler.help = ['hd', 'hdr', 'unblur', 'colorize', 'colorizer', 'enhance', 'enhancer']
 handler.tags = ["ai"];
 handler.premium = true;
 handler.command = ["hd"];
 export default handler;
+      
       
