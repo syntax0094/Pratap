@@ -10,7 +10,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 	switch (type) {
 	  case 'pikachu':
 		if (!text) throw tee;
-		let chut = `https://api.popcat.xyz/pikachu?name=${encodeURIComponent(text)}&apikey=Y`;
+		let chut = `https://api.popcat.xyz/pikachu?text=${encodeURIComponent(text)}&apikey=Y`;
 		conn.sendFile(m.chat, chut, 'logo.png', `✅ Result`, m);
 		m.react(done);
 		break;
