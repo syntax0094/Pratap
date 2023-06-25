@@ -101,7 +101,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   
   handler.help = ['pikachu', 'darke', 'unforgivable', 'sadcat', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'pooh', 'gfx12'];
   handler.tags = ['m'];
-  handler.command = /^(pikachu|darke|unforgivable|cadcat|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|pooh|gfx12)$/i;
+  handler.command = /^(pikachu|darke|unforgivable|sadcat|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|pooh|gfx12)$/i;
   handler.diamond = false;
   
   export default handler;
