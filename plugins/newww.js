@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 		m.react(done);
 		break;
 		
-	  case '.chup': 
+	  case 'chup': 
 		if (!text) throw too;
 		if (!text.includes('+')) throw too;
 		let [a, b] = text.split('+');
