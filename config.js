@@ -7,13 +7,13 @@ import axios from 'axios'
 
 
 global.owner = [
-  ['7798203711', 'SHUBHAM', true],
-  ['917821096044', 'BABY', true], 
+  ['918010831346', 'PRATAP', true],
+  ['919823642839', 'BABY', true], 
   [''] 
 ] //Number of owners
 
-global.mods = ['917821096044'] 
-global.prems = ['917605902011', '917821096044', '917821096044']
+global.mods = ['918010431346'] 
+global.prems = ['919823642839', '918010431346', '918010431346']
 global.keysZens = ['c2459db922', '37CC845916', '6fb0eff124']
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']
@@ -51,8 +51,8 @@ global.APIKeys = { // APIKey Here
 // Sticker WM
 global.botname = '𝚂𝚢𝚗𝚝𝚊𝚡-𝚖𝚍'
 global.premium = 'true'
-global.packname = 'shubham' 
-global.author = '@syntax' 
+global.packname = '𝚩𝚫𝚩𝐘' 
+global.author = 'Pratap🧸💌' 
 global.igfg = '▢ Follow on Instagram\nhttps://www.instagram.com\n' 
 global.dygp = 'https://chat.whatsapp.com/BibVE6tUICp3qOm2a1Ur8f'
 global.fgsc = 'https://GitHub.com' 
