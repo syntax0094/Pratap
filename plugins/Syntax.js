@@ -32,9 +32,8 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-┌───•✧𝑰𝑵𝑭𝑶 𝑼𝑺𝑬𝑹✧•────┐
+┌───•✧𝑼𝑺𝑬𝑹 𝑰𝑵𝑭𝑶✧•────┐
 ┊ 👨‍💻  *Name:* %name
-┊ 😈  𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 :shubham
 ┊ 👤  𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ❌
 ┊ 💎  *Diamonds:* %diamond
 ┊ 📱  *Rank:* %role
@@ -47,6 +46,7 @@ const defaultMenu = {
 └─────── •✧✧• ───────┘ 
 
 ┌────•✧𝑩𝑶𝑻 𝑰𝑵𝑭𝑶✧•────┐
+┊ 😈  𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 :Pratap
 ┊ 🤖  *Name Bot:* syntax-md
 ┊ 👨‍💻   𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 :linux 
 ┊ 😼  *Mode:* public
@@ -67,7 +67,7 @@ const defaultMenu = {
 
   body: '┊ ꒰ ͜͡➸ %cmd %isdiamond %isPremium',
   footer: '└────── •✧✧• ──────┘\n',
-  after: `made by shubham
+  after: `made by Pratap🧸💌
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
@@ -171,7 +171,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       ['⌬ Grupos', `${_p}gpdylux`]
     ],m, rpl)*/
   
-    m.react('🥵') 
+    m.react('🥵','✨️','❤️‍🔥','😳') 
     
   } catch (e) {
     conn.reply(m.chat, '❎ Sorry, 😔 menu me error ha yaar ', m)
@@ -179,7 +179,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   }
 }
 handler.help = ['help']
-handler.tags = ['main']
+handler.tags = ['main'] 
 handler.command = ['menu', 'help', 'menú'] 
 handler.register = false
 
