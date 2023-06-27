@@ -13,7 +13,7 @@ global.owner = [
 ] //Number of owners
 
 global.mods = ['918010431346'] 
-global.prems = ['919823642839', '918010431346', '918010431346']
+global.prems = ['918010431346', '919823642839', '918010431346']
 global.keysZens = ['c2459db922', '37CC845916', '6fb0eff124']
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']
@@ -54,10 +54,10 @@ global.premium = 'true'
 global.packname = '𝚩𝚫𝚩𝐘' 
 global.author = 'Pratap🧸💌' 
 global.igfg = '▢ Follow on Instagram\nhttps://www.instagram.com\n' 
-global.dygp = 'https://chat.whatsapp.com/BibVE6tUICp3qOm2a1Ur8f'
+global.dygp = 'https://chat.whatsapp.com/'
 global.fgsc = 'https://GitHub.com' 
-global.fgyt = 'https://youtube.com/@samcreation8299'
-global.fgpyp = 'https://youtube.com/@samcreation8299'
+global.fgyt = 'https://youtube.com/'
+global.fgpyp = 'https://youtube.com/'
 global.fglog = 'https://raw.githubusercontent.com/Guru322/api/Guru/guru.jpg' 
 global.shizokeys = 'shizo'
 global.piesmsg = '_Pies 🥵💦_'
