@@ -46,23 +46,48 @@ let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
 let user = global.db.data.users[who]
   
 let infobt = `
-≡ *INFO BOT*
-  
-*STATE*
-▢ *${groupsIn.length}* GROUP CHATS
-▢ *${groupsIn.length}* united groups
-▢ *${groupsIn.length - groupsIn.length}* abandoned groups
-▢ *${chats.length - groupsIn.length}* private chats
-▢ *${chats.length}* Total Chats
-
-
- *≡ S E R V E R*
-*🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-*🔵 FreeRAM:* ${format(freemem())}
-
-*≡  NodeJS memory *
+╭━━━━[ ${gt} ]━━━━━✰
+»➪ *CREATOR*
+»☆ *𝐏𝐑𝐀𝐓𝐀𝐏*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *CONTACT* 
+»☆ *${ig}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *VERSION*
+»☆ ${vs}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *PREFIX*
+»☆ *${usedPrefix}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *PRIVATE CHAT*
+»☆ *${chats.length - groups.length}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *GROUP CHAT*
+»☆ *${groups.length}* 
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *TOTAL CHATS*
+»☆ *${chats.length}* 
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *ACTIVITY*
+»☆ *${uptime}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *USERS*
+»☆ *${totalreg}* 
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *SPEED*
+»☆ *${speed}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *ACTIVE SECONDARY BACKS*
+»☆*${totaljadibot.length}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *AUTOREAD*
+»☆ ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+»➪ *RESTRICT* 
+»☆ ${restrict ? '*Activado ✔*' : '*Desactivado ✘*'} 
+»
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
-`
+╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━✰`
 conn.sendFile(m.chat, pp, 'prefil.jpg', infobt, m, false, { mentions: [who] })
 m.react(done)
 
