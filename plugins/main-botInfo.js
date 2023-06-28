@@ -46,7 +46,7 @@ let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
 let user = global.db.data.users[who]
   
 let infobt = `
-╭━━━━[ ${gt} ]━━━━━✰
+╭━━━━[ ${bot.name} ]━━━━━✰
 »➪ *CREATOR*
 »☆ *𝐏𝐑𝐀𝐓𝐀𝐏*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
