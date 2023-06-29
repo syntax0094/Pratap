@@ -12,7 +12,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     await conn.sendFile(m.chat, e, '', wm, m)
 }
 */
-import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from '@bochilteam/scraper'
+import fetch from 'node-fetch';
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   try {
     if (!args[0]) throw `Url kaha hai 🫤 ?`
