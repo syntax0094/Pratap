@@ -12,7 +12,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     await conn.sendFile(m.chat, e, '', wm, m)
 }
 */
-import fetch from 'node-fetch';
+*/
+import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from 'node-fetch'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   try {
     if (!args[0]) throw `Url kaha hai 🫤 ?`
@@ -33,6 +34,6 @@ handler.tags = ['downloader']
 
 handler.command = /^(ig(dl)?|instagram)$/i
 handler.limit = true
-handler.register = true
+handler.register = false
 
 export default handler
