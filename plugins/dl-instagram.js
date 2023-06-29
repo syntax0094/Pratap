@@ -1,23 +1,28 @@
+import fetch from 'node-fetch';
 
+let handler = async (m, { conn, usedPrefix, args, command, text }) => {
+  if (!text) throw `LINK?`;
+  m.reply(wait);
 
-import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from 'node-fetch'
-let handler = async (m, { conn, args, usedPrefix, command }) => {
+  let res;
   try {
-    if (!args[0]) throw `Url kaha hai 🫤 ?`
-    await m.reply('Sending in prosses...')
-    const results = await instagramdl(args[0])
-      .catch(async _ => await instagramdlv2(args[0]))
-      .catch(async _ => await instagramdlv3(args[0]))
-      .catch(async _ => await instagramdlv4(args[0]))
-    for (const { url } of results) await conn.sendFile(m.chat, url, 'instagram.mp4', global.wm, m)
-  } catch (e) {
-    console.log(e)
-    m.reply(`Error feature or Brain user error 😗`)
+    res = await fetch(`https://inrl-web.onrender.com/api/insta?url=${text}`);
+  } catch (error) {
+    throw `An error occurred: ${error.message}`;
   }
+
+  let api_response = await res.json();
+  if (!api_response || !api_response.result || api_response.result.length === 0) {
+    throw `No video found or Invalid response from API.`;
+  }
+
+  let cap = `HERE IS THE VIDEO >,<`;
+
+  conn.sendFile(m.chat, api_response.result[0], 'instagram.mp4', cap, m);
 }
 
-handler.help = ['ig'].map(v => v + ' <url>')
+handler.help = ['instagram']
 handler.tags = ['downloader']
-handler.command = /^(ig(dl)?|instagram)$/i
+handler.command = /^(instagram|igdl|ig|instagramdl)$/i
 
 export default handler
