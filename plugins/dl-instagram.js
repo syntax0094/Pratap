@@ -1,28 +1,38 @@
-import fetch from 'node-fetch';
+/*
+import axios from 'axios'
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+  const linknya = args[0]
 
-let handler = async (m, { conn, usedPrefix, args, command, text }) => {
-  if (!text) throw `LINK?`;
-  m.reply(wait);
-
-  let res;
+  if (!args[0]) throw `Input *URL*`
+  if (!args[0].match(/https:\/\/www.instagram.com\/(p|reel|tv)/gi)) throw `*Link salah! Perintah ini untuk mengunduh postingan ig/reel/tv`
+  let api = await axios.get(`https://xzn.wtf/api/igdl?url=${linknya}&apikey=${global.xzn}`)
+  let wm = `${global.wm}`
+  await m.reply('Sedang diproses...')
+  for (let e of api.data.media)
+    await conn.sendFile(m.chat, e, '', wm, m)
+}
+*/
+import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from '@bochilteam/scraper'
+let handler = async (m, { conn, args, usedPrefix, command }) => {
   try {
-    res = await fetch(`https://inrl-web.onrender.com/api/insta?url=${text}`);
-  } catch (error) {
-    throw `An error occurred: ${error.message}`;
+    if (!args[0]) throw `Url kaha hai 🫤 ?`
+    await m.reply('Sending in prosses...')
+    const results = await instagramdl(args[0])
+      .catch(async _ => await instagramdlv2(args[0]))
+      .catch(async _ => await instagramdlv3(args[0]))
+      .catch(async _ => await instagramdlv4(args[0]))
+    for (const { url } of results) await conn.sendFile(m.chat, url, 'instagram.mp4', global.wm, m)
+  } catch (e) {
+    console.log(e)
+    m.reply(`Error feature or Brain user error 😗`)
   }
-
-  let api_response = await res.json();
-  if (!api_response || !api_response.result || api_response.result.length === 0) {
-    throw `No video found or Invalid response from API.`;
-  }
-
-  let cap = `HERE IS THE VIDEO >,<`;
-
-  conn.sendFile(m.chat, api_response.result[0], 'instagram.mp4', cap, m);
 }
 
-handler.help = ['instagram']
+handler.help = ['ig'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.command = /^(instagram|igdl|ig|instagramdl)$/i
+
+handler.command = /^(ig(dl)?|instagram)$/i
+handler.limit = true
+handler.register = true
 
 export default handler
