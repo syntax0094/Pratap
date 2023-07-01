@@ -3,7 +3,7 @@ let handler = async (m, { conn}) => {
 let user = global.db.data.users[m.sender]
 let name = conn.getName(m.sender)
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-let av = `./src/mp3/${pickRandom(["@918010431346", "Guru", "Pratap"])}.mp3`
+let av = `./src/mp3/${pickRandom(["@918010431346", "Pratap"])}.mp3`
 
 m.reply( `Hello ${taguser} Need help?  type /help `)
 conn.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true })
