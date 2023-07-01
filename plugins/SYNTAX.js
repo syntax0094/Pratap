@@ -13,7 +13,7 @@ SYNTAX-MD`);
   await conn.updateProfilePicture(m.chat, shizo)
   
 }
-handler.command = /^(chal)$/i
+handler.command = /^(💀)$/i
 handler.rowner = true 
 handler.botAdmin = true
 export default handler
