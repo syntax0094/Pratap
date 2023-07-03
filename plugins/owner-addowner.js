@@ -2,10 +2,10 @@ let handler = async (m, { conn, text }) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text
     else who = m.chat
-    if (!who) throw `kisko owner banana hai usko tag karo darling!`
-    if (global.owner.includes(who.split`@`[0])) throw 'Malik vo pehlese owner hai 🙃!'
+    if (!who) throw `tagga qualcuno!`
+    if (global.owner.includes(who.split`@`[0])) throw 'è gia il proprietario, hai fumato?!'
     global.owner.push(`${who.split`@`[0]}`)
-    conn.reply(m.chat, `@${who.split`@`[0]} congrats ab tu bhi owner hai 🌚 !`, m, {
+    conn.reply(m.chat, `@${who.split`@`[0]} ok, eseguo.. è ora proprietario!!`, m, {
         contextInfo: {
             mentionedJid: [who]
         }
