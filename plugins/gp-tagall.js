@@ -5,14 +5,14 @@ throw false
 }
 let pesan = args.join` `
 let oi = `*᯼➳ Group : *${groupMetadata.subject}`
-oi +=    `*💌 MESSAGE:* ${pesan}`
+let oi = `*💌 MESSAGE:* ${pesan}`
 let teks = `*╭─「 INVOKING THE GROUP 💖🪄 」─╮*\n*│*\n*│➼*  ${oi}\n*│*\n`
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
 for (let username of participants) {
 teks += `*│◦❖* @${username.id.split('@')[0]}\n`}
-teks += `*──────Syntax ┃ ᴮᴼᵀ──────╯*`
+teks += `*╰──────Syntax ┃ ᴮᴼᵀ──────╯*`
 conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, )  
   
 }
