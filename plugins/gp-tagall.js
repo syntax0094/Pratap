@@ -4,7 +4,8 @@ global.dfail('admin', m, conn)
 throw false
 }
 let pesan = args.join` `
-let oi = `*💌 MESSAGE:* ${pesan}`
+let oi = `*᯼➳ Group : *${groupMetadata.subject}`
+oi +=    `*💌 MESSAGE:* ${pesan}`
 let teks = `*╭─「 INVOKING THE GROUP 💖🪄 」─╮*\n*│*\n*│➼*  ${oi}\n*│*\n`
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
