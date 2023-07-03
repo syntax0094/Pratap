@@ -5,7 +5,7 @@ throw false
 }
 let pesan = args.join` `
 let oi = `*💌 MESSAGE:* ${pesan}`
-let teks = `*╭─「 INVOKING THE GROUP 💖🪄 」─╮*\n*│*\n*│➼*  ${oi}\n*│*\n*\n*│᯼➳ Group : *${groupMetadata.subject}`
+let teks = `*╭─「 INVOKING THE GROUP 💖🪄 」─╮*\n*│*\n*│➼*  ${oi}\n*│*\n`
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
