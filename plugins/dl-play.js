@@ -1,72 +1,85 @@
+import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
+   let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
+  if (!text) throw `*⚠️ ENTER THE NAME OF THE SONG YOU ARE LOOKING FOR*\n\n*💡 EXAMPLE*\n*${usedPrefix + command}* Another love `
+  m.react(rwait)
+  try {
+    var vid = (await youtubeSearch(text)).video[0]
+    if (!vid) throw '[❗] ERROR COULD NOT DOWNLOAD THE AUDIO...'
+    var { title, 
+          description, 
+          thumbnail, 
+          videoId, 
+          durationH, 
+          durationS,
+          viewH,
+          publishedTime
+                         } = vid
+    var url = 'https://www.youtube.com/watch?v=' + videoId
 
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
-import yts from 'yt-search'
-var handler = async (m, { conn, command, text, usedPrefix }) => {
-  if (!text) throw `Use example ${usedPrefix}${command} naruto blue bird`
-  await m.reply(wait)
-  let search = await yts(text)
-  let vid = search.videos[Math.floor(Math.random() * search.videos.length)]
-  if (!search) throw 'Video Not Found, Try Another Title'
-  let { title, thumbnail, timestamp, views, ago, url } = vid
-  let wm = 'Downloading audio please wait'
+   let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
 
-  let captvid = `╭──── 〔 Y O U T U B E 〕 ─⬣
-⬡ Title: ${title}
-⬡ Duration: ${timestamp}
-⬡ Views: ${views}
-⬡ Upload: ${ago}
-⬡ Link: ${url}
-╰────────⬣`
-  conn.sendButton(m.chat, `╭──── 〔 Y O U T U B E 〕 ─⬣
-⬡ Title: ${title}
-⬡ Duration: ${timestamp}
-⬡ Views: ${views}
-⬡ Upload: ${ago}
-⬡ Link: ${url}
-╰────────⬣`, author.trim(), await( await conn.getFile(thumbnail)).data, ['VIDEO', `${usedPrefix}ytmp4 ${url}`], false, { quoted: m, 'document': { 'url':'https://wa.me/917605902011' },
-'mimetype': global.dpdf,
-'fileName': `𝔾𝕌ℝ𝕌 ℙ𝕃𝔸𝕐𝔼ℝ`,
-'fileLength': 666666666666666,
-'pageCount': 666,contextInfo: { externalAdReply: { showAdAttribution: true,
-mediaType:  2,
-mediaUrl: `${url}`,
-title: `AUDIO IS BEING SENT...`,
-body: wm,
-sourceUrl: 'http://wa.me/917605902011', thumbnail: await ( await conn.getFile(thumbnail)).data
-  }
- } 
-})
+    let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
+    var tmb = thumbnail
+    var captionvid = `
+  *∘ 📑 TITLE:*
+   ${title}
+   
+ *∘ 📆 PUBLISHED:* 
+  ${publishedTime}
   
-  //let buttons = [{ buttonText: { displayText: '📽VIDEO' }, buttonId: `${usedPrefix}ytv ${url} 360` }]
- //let msg = await conn.sendMessage(m.chat, { image: { url: thumbnail }, caption: captvid, footer: author, buttons }, { quoted: m })
+  *∘ ⏰ DURATION:* 
+  ${durationH}
+  
+  *∘ 👀 VIEWS* 
+  ${viewH}  
+  
+  *∘ 📡 LINK*  
+  ${url}
+  
+  *∘ 💬 DESCRIPTION* 
+  ${description}`
+    var pesan = await conn.sendMessage(m.chat, {
+    text: captionvid,
+    contextInfo: {
+    externalAdReply: {
+    title: "",
+    body: "SYNTAX-MD",
+    thumbnailUrl: tmb ,
+    sourceUrl: web,
+    mediaType: 1,
+    showAdAttribution: true,
+    renderLargerThumbnail: true
+    }}})
 
-  const yt = await youtubedlv2(url).catch(async _ => await youtubedl(url))
-const link = await yt.audio['128kbps'].download()
-  let doc = { 
-  audio: 
-  { 
-    url: link 
-}, 
-mimetype: 'audio/mp4', fileName: `${title}`, contextInfo: { externalAdReply: { showAdAttribution: true,
-mediaType:  2,
-mediaUrl: url,
-title: title,
-body: wm,
-sourceUrl: url,
-thumbnail: await(await conn.getFile(thumbnail)).data                                                                     
-                                                                                                                 }
-                       }
+    if (durationS > 18000) return conn.sendMessage(m.chat, { text: `*LINK:* ${await cut(url)}\n\n_Durasi terlalu panjang..._\n*Duration Limit!*` }, { quoted: pesan })
+    m.react(done)
+    conn.sendMessage(m.chat, { audio: { url: web }, mimetype: 'audio/mpeg', contextInfo: {
+    externalAdReply: {
+    title: title,
+    body: "",
+    thumbnailUrl: tmb,
+    sourceUrl: web,
+    mediaType: 1,
+    showAdAttribution: true,
+    renderLargerThumbnail: true
+    }}} , { quoted: pesan })
+
+  } catch (e) {
+    throw '[❗] ERROR COULD NOT DOWNLOAD THE AUDIO...' 
   }
-
-  return conn.sendMessage(m.chat, doc, { quoted: m })
-	// return conn.sendMessage(m.chat, { document: { url: link }, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: m})
-	// return await conn.sendFile(m.chat, link, title + '.mp3', '', m, false, { asDocument: true })
 }
-handler.help = ['play'].map(v => v + ' <query>')
-handler.tags = ['downloader']
-handler.command = /^play$/i
-
-handler.exp = 0
-handler.diamond = false
-
+handler.command = handler.help = ['play','song','youtube','ytmp3','ds','downloadyt','yta'];
+handler.tags = ['downloader'];
+handler.exp = 0;
+handler.diamond = true
+handler.premium = false;
 export default handler
+async function cut(url) {
+  url = encodeURIComponent(url)
+  let res = await fetch(`https://api.botcahx.live/api/linkshort/bitly?link=${url}&apikey=${btc}`)
+  if (!res.ok) throw false
+  return await res.text()
+}
+async function delay(ms) {
+   await new Promise(resolve => setTimeout(resolve, ms));
+}
