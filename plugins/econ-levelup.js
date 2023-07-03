@@ -8,16 +8,16 @@ let handler = async (m, { conn }) => {
         let { min, xp, max } = xpRange(user.level, global.multiplier)
         let txt = `
 ┌───⊷ *LEVEL*
-▢ Number : *${name}*
-▢ Level : *${user.level}*
-▢ XP : *${user.exp - min}/${xp}*
-▢ Role : *${user.role}*
+🔢 Number : *${name}*
+🍁 Level : *${user.level}*
+🏦 XP : *${user.exp - min}/${xp}*
+👷 Role : *${user.role}*
 └──────────────
 
 You lack *${max - user.exp}* of *XP* to level up
 `.trim()
 try {
-  let imgg = API('fgmods', '/api/rank', {
+  let imgg = API('fgmods', '/api/maker/rank', {
     username: name,
     xp: user.exp - min,
     exp: xp,
@@ -46,7 +46,7 @@ try {
 *_The more you interact with the bots, the higher your level will be_*
 `.trim()
         try {
-            let img = API('fgmods', '/api/levelup', { 
+            let img = API('fgmods', '/api/maker/levelup', { 
                 avatar: pp 
              }, 'apikey')
       conn.sendFile(m.chat, img, 'levelup.jpg', str, m)
