@@ -1,7 +1,7 @@
 import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
    let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
   if (!text) throw `*⚠️ ENTER THE NAME OF THE SONG YOU ARE LOOKING FOR*\n\n*💡 EXAMPLE*\n*${usedPrefix + command}* Another love `
-  m.react(rwait)
+  m.react(rwait 🎧)
   try {
     var vid = (await youtubeSearch(text)).video[0]
     if (!vid) throw '[❗] ERROR COULD NOT DOWNLOAD THE AUDIO...'
