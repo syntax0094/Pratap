@@ -19,43 +19,43 @@ let old = performance.now()
 let neww = performance.now()
 let speed = neww - old
 let info = `
-*📑 INFO SYNTAX MD*
+*⋮ 📑 INFO SYNTAX MD*
 
-👑 *CREATOR*
- *𝛲𝑅𝛥𝑇𝛥𝛲*
---------------------------
-🥏 *CONTACT* 
- *${igfg}*
---------------------------
-🌐 *VERSION*
- *LATEST*
---------------------------
-💻 *PREFIx*
- *MULTI PREFIX*
---------------------------
-🚦 *PRIVATE CHAT*
- *${chats.length - groups.length}*
---------------------------
-📑 *CHATS GRUPALES*
- *${groups.length}* 
---------------------------
-💬 *GROUP CHAT*
- *${chats.length}* 
---------------------------
-⏰ *ACTIVITY*
- *${uptime}*
---------------------------
-👥 *USERS*
- *${totalreg}* 
---------------------------
-🚀 *SPEED:*
- *${speed}*
---------------------------
-📡 *AUTOREAD:*
- ${autoread ? '*enabled ✅*' : '*disabled ❌*'}
---------------------------
-🔰 *RESTRICT:*
-${restrict ? '*enabled ✅*' : '*disabled ❌*'}`.trim() 
+⋮ 👑 *CREATOR*
+⋮  *𝛲𝑅𝛥𝑇𝛥𝛲*
+◈--------------------------◈
+⋮ 🥏 *CONTACT* 
+⋮  *${igfg}*
+◈--------------------------◈
+⋮ 🌐 *VERSION*
+⋮  *LATEST*
+◈--------------------------◈
+⋮ 💻 *PREFIx*
+⋮  *MULTI PREFIX*
+◈--------------------------◈
+⋮ 🚦 *PRIVATE CHAT*
+⋮  *${chats.length - groups.length}*
+◈--------------------------◈
+⋮ 📑 *CHATS GRUPALES*
+⋮  *${groups.length}* 
+◈--------------------------◈
+⋮ 💬 *GROUP CHAT*
+⋮  *${chats.length}* 
+◈--------------------------◈
+⋮ ⏰ *ACTIVITY*
+⋮  *${uptime}*
+◈--------------------------◈
+⋮ 👥 *USERS*
+⋮  *${totalreg}* 
+◈--------------------------◈
+⋮ 🚀 *SPEED:*
+⋮  *${speed}*
+◈--------------------------◈
+⋮ 📡 *AUTOREAD:*
+⋮  ${autoread ? '*enabled ✅*' : '*disabled ❌*'}
+◈--------------------------◈
+⋮ 🔰 *RESTRICT:*
+⋮ ${restrict ? '*enabled ✅*' : '*disabled ❌*'}`.trim() 
 let aa = { quoted: m, userJid: conn.user.jid }
 let res = generateWAMessageFromContent (m.chat, {liveLocationMessage: {degreesLatitude: 0, degreesLongitude: 0, caption: info, secuenceNumber: "0", contextInfo: {mentionedJid: conn.parseMention()}}}, aa)
 conn.relayMessage(m.chat, res.message, {})
