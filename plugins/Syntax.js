@@ -66,7 +66,7 @@ const defaultMenu = {
   header: '┌────•✧%category✧•────┐',
   
 
-  body: '┊ ꒰ ͜͡➸ %cmd %isdiamond %isPremium',
+  body: '┊ ✗❑ %cmd %isdiamond %isPremium',
   footer: '└────── •✧✧• ──────┘\n',
   after: `made by Pratap🧸💌
 `,
