@@ -19,6 +19,7 @@ let tags = {
   'group': 'GROUP',
   'nable': 'EN/DISABLE OPTIONS', 
   'nime': 'ANIME',
+  'database': 'DATABASE',
   'rnime': 'ANIME REACCION',
   'dl': 'DISCHARGES',
   'tools': 'TOOLS',
