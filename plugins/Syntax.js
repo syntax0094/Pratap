@@ -69,7 +69,7 @@ const defaultMenu = {
 -----  -----  -----  -----  -----
   ≡ *MENU LIST*
 `.trimStart(),
-  header: '╔═══[ %category ]═══╗\n║╭──────────────',
+  header: '╔═══[ %category ]═══╗',
   
 
   body: '║ႌ〬⫹⫺ %cmd %isdiamond %isPremium',
