@@ -56,7 +56,7 @@ const defaultMenu = {
 ║├⫹⫺ *𝐍𝐔𝐌𝐁𝐄𝐑 :* wa.me/918010431356
 ║├⫹⫺ *𝐏𝐋𝐀𝐓𝐄𝐅𝐎𝐑𝐌 :* 𝚕𝚒𝚗𝚞𝚡
 ║├⫹⫺ *𝐌𝐎𝐃𝐄 :* 𝙿𝚞𝚋𝚕𝚒𝚌
-║├⫹⫺ *𝐏𝐑𝐄𝐅𝐈𝐗 :* %usedPrefix 
+║├⫹⫺ *𝐏𝐑𝐄𝐅𝐈𝐗 :* [ . ]
 ║├⫹⫺ *𝐀𝐂𝐓𝐈𝐕𝐄 𝐓𝐈𝐌𝐄 :*  %muptime
 ║├⫹⫺ *𝐃𝐀𝐓𝐀𝐁𝐀𝐒𝐄 :* %rtotalreg From %totalreg
 ║├⫹⫺ *𝐓𝐎𝐓𝐀𝐋 𝐔𝐒𝐄𝐑 :* %rtotalreg
