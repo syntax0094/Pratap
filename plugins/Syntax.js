@@ -16,7 +16,7 @@ let tags = {
   'vip': 'VIP-LOGO',
   'stalk': 'STALK',
   'prem': 'PREMIUM',
-  'gp': 'GROUP',
+  'group': 'GROUP',
   'nable': 'EN/DISABLE OPTIONS', 
   'nime': 'ANIME',
   'rnime': 'ANIME REACCION',
