@@ -19,9 +19,9 @@ total++
 sider.push(member[i])}}}
 const delay = time => new Promise(res=>setTimeout(res,time));
 switch (command) {
-case "fantasmas": 
+case "inactive": 
 if(total == 0) return conn.reply(m.chat, `*🌟 ESTE GRUPO ES ACTIVO NO TIENE FANTASMAS :D*`, m) 
-m.reply(`*⚠️ REVISIÓN DE INACTIVOS ⚠️*\n\n*📑 GRUPO:* ${await conn.getName(m.chat)}\n*🪁 MIEMBROS DEL GRUPO:* ${sum}\n\n*👻 LISTAS DE FANTASMA 👻*\n${sider.map(v => ' ┣❥ @' + v.replace(/@.+/, '')).join('\n')}\n\n*📝 NOTA: Esto no es al 100% acertado, el bot inicia el conteo de mensajes a partir de que se active en este número*`, null, { mentions: sider }) 
+m.reply(`*⚠️ INACTIVE MEMBERS⚠️*\n\n*📑 GROUP NAME:* ${await conn.getName(m.chat)}\n\n*🪁 GROUP MEMBERS:* ${sum}\n\n*👻 INACTIVE MEMBERS LIST�*\n${sider.map(v => ' ┣❥ @' + v.replace(/@.+/, '')).join('\n')}\n\n*📝 NOTE: This is not 100% accurate, the bot starts counting messages after it is activated on this number*`, null, { mentions: sider }) 
   break   
 case "kickfantasmas":  
         if(total == 0) return conn.reply(m.chat, `*🌟 ESTE GRUPO ES ACTIVO NO TIENE FANTASMAS :D*`, m) 
