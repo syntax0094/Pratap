@@ -10,8 +10,15 @@ let {
  login, 
  type,
  name,
+ Id,
  followers, 
  following, 
+ NodeidId,
+ Profile_pic,
+ Url,
+ Type,
+ Admin,
+ company,
  created_at, 
  updated_at,
  public_gists,
@@ -26,31 +33,39 @@ let {
  avatar_url,
  html_url
 } = res.data
-var teks = `*GITHUB STALK*
-*User Name :* ${login}
-*Nick Name :* ${name}
-*Followers :* ${followers}
-*Following :* ${following}
-*Public Gists :* ${public_gists}
-*Public Repos :* ${public_repos}
-*Twitter :* ${twitter_username==null?'-':twitter_username}
-*Email :* ${email==null?'-':email}
-*Location :* ${location==null?'-':location}
-*Blog :* ${blog}
-*Link :* ${html_url}
-*Created Time :*
-  - Date : ${moment(created_at).tz('Asia/Jakarta').format('DD-MM-YYYY')}
-  - Time : ${moment(created_at).tz('Asia/Jakarta').format('HH:mm:ss')}
-*Updated Time :* 
-  - Date : ${moment(updated_at).tz('Asia/Jakarta').format('DD-MM-YYYY')}
-  - Time : ${moment(updated_at).tz('Asia/Jakarta').format('HH:mm:ss')}
-*Bio :* ${bio}`
+var teks = `╔════*GITHUB STALK*═════╗
+║➻ *User Name :* ${login}
+║➻ *Nick Name :* ${name}
+║➻ *Id :* ${id}
+║➻ *Followers :* ${followers}
+║➻ *Following :* ${following}
+║➻ *Nodeid :* ${nodeId}
+║➻ *Url Profile :* ${profile_pic}
+║➻ *Url Github :* ${url}
+║➻ *Type :* ${type}
+║➻ *Admin :* ${admin}
+║➻ *Company :* ${company}
+║➻ *Public Gists :* ${public_gists}
+║➻ *Public Repos :* ${public_repos}
+║➻ *Twitter :* ${twitter_username==null?'-':twitter_username}
+║➻ *Email :* ${email==null?'-':email}
+║➻ *Location :* ${location==null?'-':location}
+║➻ *Blog :* ${blog}
+║➻ *Link :* ${html_url}
+║➻ *Created Time :*
+║  - Date : ${moment(created_at).tz('Asia/Jakarta').format('DD-MM-YYYY')}
+║  - Time : ${moment(created_at).tz('Asia/Jakarta').format('HH:mm:ss')}
+║➻ *Updated Time :* 
+║  - Date : ${moment(updated_at).tz('Asia/Jakarta').format('DD-MM-YYYY')}
+║  - Time : ${moment(updated_at).tz('Asia/Jakarta').format('HH:mm:ss')}
+║➻ *Bio :* ${bio}
+╚══════❲ *𝚂𝚈𝙽𝚃𝙰𝚇 | ᵇᵒᵗ* ❳═════✥`
 conn.sendFile(m.chat, avatar_url, 'github-stalk.png', teks, m)
 })
 
 }
 handler.help = ['githubstalk'].map(v => v + ' <query>')
 handler.tags = ['stalk']
-handler.command = /^(githubstalk)$/i
+handler.command = /^(gitstalk)$/i
 
 export default handler
