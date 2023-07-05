@@ -20,8 +20,8 @@ var handler = async(m, { conn, text }) => {
 ➸ *Type:* ${type}
 `
 
-    conn.sendFile(m.chat, logogit, 'githubstalk.jpg', hasil, m)
-}
+    conn.sendFile(m.chat, avatar_url, 'github-stalk.png', teks, m)
+})
 handler.help = ['githubstalk'].map(v => v + ' <query>')
 handler.tags = ['internet']
 handler.command = /^(githubstalk)$/i
