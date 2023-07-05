@@ -14,7 +14,7 @@ followingH,
 postsH,
 } = await instagramStalk(args[0])
 m.reply(`
-┃ 𓃠 *${gt} ${vs}*
+┃   *IGSTALK*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ 𝙉𝘼𝙈𝙀
 ┃ *${name}*
