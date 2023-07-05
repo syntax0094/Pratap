@@ -2,22 +2,23 @@
 import fg from 'api-dylux'
 let handler= async (m, { conn, args, text, usedPrefix, command }) => {
 	
-    if (!args[0]) throw `✳️ Enter the Instagram Username\n\n📌Example: ${usedPrefix + command} asli_guru69` 
+    if (!args[0]) throw `✳️ Enter the Instagram Username\n\n📌Example: ${usedPrefix + command} Pratap_0707'
+    try {
     let res = await fg.igStalk(args[0])
     let te = `
 ┌──「 *STALKING* 
-▢ *🔖Number:* ${res.name} 
+▢ *🔖Name:* ${res.name} 
 ▢ *🔖Username:* ${res.username}
 ▢ *👥followers:* ${res.followersH}
-▢ *🫂following:* ${res.followingH}
+▢ *🫂Following:* ${res.followingH}
 ▢ *📌Bio:* ${res.description}
 ▢ *🏝️Posts:* ${res.postsH}
-
 ▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
 └────────────`
-
-     await conn.sendFile(m.chat, res.profilePic, 'tt.png', te, m)
-     
+     await conn.sendFile(m.chat, res.profilePic, 'igstalk.png', te, m)
+      } catch {
+        m.reply(`✳️ Check that the username is *Instagram*`)
+      }
 }
 handler.help = ['igstalk']
 handler.tags = ['dl']
