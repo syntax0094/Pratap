@@ -1,7 +1,9 @@
 
-import fg from 'api-dylux'
-let handler= async (m, { conn, args, text, usedPrefix, command }) => {
-	
+//import fg from 'api-dylux'
+//let handler= async (m, { conn, args, text, usedPrefix, command }) => {
+import { instagramStalk } from '@bochilteam/scraper'
+
+let handler= async (m, { args, usedPrefix, command }) => {	
 if (!args[0]) throw `𝙀𝙉𝙏𝙀𝙍 𝙄𝙉𝙎𝙏𝘼𝙂𝙍𝘼𝙈 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} pratapp_2714*`
 const {
 username,
@@ -45,7 +47,7 @@ m.reply(`
   
 }
 handler.help = ['igstalk'].map(v => v + ' <username>')
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = /^(igstalk|verig|igver)$/i
 handler.exp = 80
 export default handler
