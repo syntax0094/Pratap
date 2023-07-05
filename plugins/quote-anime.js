@@ -4,8 +4,8 @@ let handler = async(m, { conn, text }) => {
   if (!res.ok) throw await res.text()
   let json = await res.json()
   if(!json.result[0]) throw json
-  let { indo, character, anime } = json.result[0]
-  conn.reply(m.chat, `${indo}\n\nBy: ~ _${character}_ ~\nAnime:\n${anime}`, m)
+  let { english, character, anime } = json.result[0]
+  conn.reply(m.chat, `${english}\n\nBy: ~ _${character}_ ~\nAnime:\n${anime} \n\n\n© 𝚂𝚈𝙽𝚃𝙰𝚇-𝙼𝙳`, m)
 }
 handler.help = ['quotesanime']
 handler.tags = ['quotes']
