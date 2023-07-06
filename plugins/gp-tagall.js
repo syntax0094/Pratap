@@ -21,5 +21,5 @@ handler.command = /^(tagall)$/i
 handler.botAdmin = false 
 handler.admin = true
 handler.group = true
-handler.owner = true
+handler.botOwner = true
 export default handler
