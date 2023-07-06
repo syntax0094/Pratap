@@ -1,22 +1,20 @@
-export async function all(m) {
-    if (!m.message)
-        return
-    this.spam = this.spam ? this.spam : {}
-    if (m.sender in this.spam) {
-        this.spam[m.sender].count++
-        if (m.messageTimestamp.toNumber() - this.spam[m.sender].lastspam > 5) {
-            if (this.spam[m.sender].count > 5) {
-                global.db.data.users[m.sender].kick = true
-                m.reply('*𝐒𝐏𝐀𝐌 𝐃𝐄𝐓𝐄𝐂𝐓𝐄𝐃 ⛔!!*')
-            }
-            this.spam[m.sender].count = 0
-            this.spam[m.sender].lastspam = m.messageTimestamp.toNumber()
-        }
-    }
-    else
-        this.spam[m.sender] = {
-            jid: m.sender,
-            count: 0,
-            lastspam: 0
-        }
-}
+//CRÉDITOS: https://github.com/Abiguelreyes75
+
+export async function all(m, conn) { 
+let texto
+let user = global.db.data.users[m.sender]  
+if (!m.message)
+return
+if (!user.antispam)
+return !0
+if (+new Date() > user.antispam) {
+let tiempo = 60000 * 1
+setTimeout(() => {
+//this.updateBlockStatus(m.chat, 'unblock') No me gustó jjjjj
+user.banned = false
+texto = `*@${m.sender.split("@")[0]} { return `WAS UNBANNED AFTER ${60000 / 1000 - 59} MINUTE. PLEASE DO NOT SPAM!!`}*`
+this.sendButton(m.chat, texto, wm, null,{ return `☘️ MENU`}, m, { mentions: this.parseMention(texto) })}, tiempo)        
+user.antispam = null
+}}
+
+ 
