@@ -5,7 +5,7 @@ throw false
 }
 let pesan = args.join` `
 let oi = `*💌 MESSAGE:* ${pesan}`
-let teks = `*┍┈┈❲𝐄𝐕𝐎𝐊𝐄 𝐓𝐇𝐄 𝐆𝐑𝐎𝐔𝐏⚡❳┈┈┑*\n*┋*\n*┋➼*  ${oi}\n*┋*\n`
+let teks = `*┍┈┈❲𝐄𝐕𝐎𝐊𝐄 𝐓𝐇𝐄 𝐆𝐑𝐎𝐔𝐏⚡❳┈┈┑*\n*Group name : *${groupMetadata.subject}*\n*┋*\n*┋➼*  ${oi}\n*┋*\n`
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -18,7 +18,8 @@ conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, 
 handler.help = ['tagall <mesaje>','invocar <mesaje>']
 handler.tags = ['group']
 handler.command = /^(tagall)$/i
-handler.botAdmin = true
+handler.botAdmin = false 
 handler.admin = true
 handler.group = true
+handler.owner = true
 export default handler
