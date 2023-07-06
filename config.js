@@ -50,6 +50,8 @@ global.APIKeys = { // APIKey Here
 
 // Sticker WM
 global.botname = '𝚂𝚢𝚗𝚝𝚊𝚡-𝚖𝚍'
+global.wm = '© 𝚂𝚈𝙽𝚃𝙰𝚇-𝙼𝙳'
+global.watermark = wm
 global.premium = 'true'
 global.packname = '𝚩𝚫𝚩𝐘' 
 global.author = 'Pratap🧸💌' 
