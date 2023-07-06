@@ -1,9 +1,18 @@
-let handler = async (m, { conn, command, text }) => {
-let love = `𝑳𝑶𝑽𝑬 𝑴𝑬𝑻𝑻𝑬𝑹 ❤️
-Affinity between ${text} and you: ${Math.floor(Math.random() * 100)}%
-`.trim()
-m.reply(love, null, { mentions: conn.parseMention(love) })}
-handler.help = ['love']
+let toM = a => '@' + a.split('@')[0]
+function handler(m, { groupMetadata }) {
+    let ps = groupMetadata.participants.map(v => v.id)
+    let a = m.sender
+    let b
+    do b = ps.getRandom()
+    while (b === a)
+    m.reply(`${toM(a)} ❤️ ${toM(b)}\nCongratulations 💖🍻`, null, {
+        mentions: [a, b]
+    })
+}
+handler.help = ['mylove']
 handler.tags = ['fun']
-handler.command = /^(love|amore)$/i
-export default handler
+handler.command = ['mylove']
+
+handler.group = true
+
+export default handler   
