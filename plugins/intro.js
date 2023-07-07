@@ -41,10 +41,10 @@ conn.sendButtonDoc(m.chat, krtu, 'Script : https://www.youtube.com/channel/UC5z1
     mediaUrl: "https://www.youtube.com/channel/UC5z1Xp6vQGU038B1RbMC3Gg",
     mediaType: "VIDEO",
     description: "https://www.youtube.com/channel/UC5z1Xp6vQGU038B1RbMC3Gg", 
-    title: 'Akira ID',
+    title: 'Intro Card',
     body: wm,
     thumbnail: thumb,
-    sourceUrl: sgc
+    sourceUrl: 
   }
   } }) // Tambah sendiri kalo mau
 }
