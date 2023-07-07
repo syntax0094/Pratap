@@ -12,8 +12,9 @@ m.reply(`@${menzione.split`@`[0]} ${pickRandom(['spacospaco botilia e ti amazo f
  mentions: [menzione]
 })
 }
-handler.customPrefix = /threat/i
-handler.command = new RegExp
+handler.help = ["threat @tag"] 
+handler.tags = ['fun']
+handler.command = /^(threat)/i
 export default handler
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]
