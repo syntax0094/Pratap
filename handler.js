@@ -684,8 +684,8 @@ case 'remove':
                 ppgp = await this.profilePictureUrl(id, 'image');
             } catch (error) {
                 console.error(`Error retrieving profile picture: ${error}`);
-                pp = 'https://i.imgur.com/8B4jwGq.jpeg'; // Assign default image URL
-                ppgp = 'https://i.imgur.com/8B4jwGq.jpeg'; // Assign default image URL
+                pp = 'https://i.imgur.com/bFEC7lC.jpeg'; // Assign default image URL
+                ppgp = 'https://i.imgur.com/bFEC7lC.jpeg'; // Assign default image URL
             } finally {
                 let text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido') :
                     (chat.sBye || this.bye || conn.bye || 'HELLO, @user')).replace('@user', '@' + user.split('@')[0]);
@@ -693,6 +693,23 @@ case 'remove':
                 let nthMember = groupMetadata.participants.length;
                 let secondText = action === 'add' ? `Welcome, ${await this.getName(user)}, our ${nthMember}th member` : `Goodbye, our ${nthMember}th group member`;
 
+		   let wel = API('fgmods', '/api/welcome', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.imgur.com/bFEC7lC.jpeg'
+                            }, 'apikey')
+
+                            let lea = API('fgmods', '/api/goodbye', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.imgur.com/bFEC7lC.jpeg'
+                            }, 'apikey')
                 try {
                     let apiKey = "gandu";  // Replace with your actual API Key
                     let wel = await fetch(`https://oni-chan.my.id/api/canvas/welcome_v1?ppurl=${encodeURIComponent(pp)}&bgurl=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoyd4vOi-tJEhN-voL-yVTYsko8dcBvloa2A&usqp=CAU&username=${encodeURIComponent(await this.getName(user))}&totalmember=${encodeURIComponent(nthMember.toString())}&secondtext=${encodeURIComponent(secondText)}&apikey=${apiKey}`);
