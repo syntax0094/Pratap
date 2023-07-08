@@ -1,31 +1,58 @@
-let handler = async (m, { args, usedPrefix }) => {
-    let user = global.db.data.users[m.sender]
-    if (user.health >= 100) return m.reply(`
-Your ❤️health is full!
-`.trim())
-let buf = user.cat
-let buff = (buf == 0 ? '5' : '' || buf == 1 ? '10' : '' || buf == 2 ? '15' : '' || buf == 3 ? '20' : '' || buf == 4 ? '25' : '' || buf == 5 ? '30' : '' || buf == 6 ? '35' : '' || buf == 7 ? '40' : '' || buf == 8 ? '45' : '' || buf == 9 ? '50' : '' || buf == 10 ? '100' : '' || buf == 11 ? '100' : '') 
-    const heal = 15 + (buff * 4)
-    let count = Math.max(1, Math.min(Number.MAX_SAFE_INTEGER, (isNumber(args[0]) && parseInt(args[0]) || Math.round((100 - user.health) / heal)))) * 1
-    if (user.potion < count) return m.reply(`
-Your 🥤Potion is not enough, you only have *${user.potion}* 🥤Potion
-type *${usedPrefix}buy potion ${count - user.potion}* to buy 🥤Potion
-`.trim())
-    user.potion -= count * 1
-    user.health += heal * count
-    m.reply(`
-Successful use of *${count}* 🥤Potion(s)
-`.trim())
-}
+wa.me/
+import { areJidsSameUser } from '@adiwajshing/baileys'
 
-handler.help = ['heal']
-handler.tags = ['rpg']
-handler.command = /^(heal)$/i
+let handler = async (m, { conn, args, participants }) => {
+  let users = Object.entries(global.db.data.users).map(([key, value]) => {
+    return {...value, jid: key}
+  })
+  let sortedExp = users.map(toNumber('exp')).sort(sort('exp'))
+  let sortedLim = users.map(toNumber('diamond')).sort(sort('diamond'))
+  let sortedLevel = users.map(toNumber('level')).sort(sort('level'))
+  let usersExp = sortedExp.map(enumGetKey)
+  let usersLim = sortedLim.map(enumGetKey)
+  let usersLevel = sortedLevel.map(enumGetKey)
+  let len = args[0] && args[0].length > 0 ? Math.min(50, Math.max(parseInt(args[0]), 5)) : Math.min(5, sortedExp.length)
+  let text = `
+       ≡ *𝐋𝐄𝐀𝐃𝐄𝐑𝐁𝐎𝐀𝐑𝐃*
+    
+▢ *TOP ${len} XP* 🧬
+YOU : *${usersExp.indexOf(m.sender) + 1}* from *${usersExp.length}*
+
+${sortedExp.slice(0, len).map(({ jid, exp }, i) => `*${i + 1}.* ${participants.some(p => areJidsSameUser(jid, p.id)) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} ➭ _*XP ${exp}*_`).join`\n`}
+
+▢ *TOP ${len} DIAMONDS💎* 
+YOU : *${usersLim.indexOf(m.sender) + 1}* from *${usersLim.length}*
+
+${sortedLim.slice(0, len).map(({ jid, diamond }, i) => `*${i + 1}.* ${participants.some(p => areJidsSameUser(jid, p.id)) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} ➭ _*Diamonds ${diamond}*_`).join`\n`}
+
+▢ *TOP ${len} LEVEL* ⬆️
+YOU : *${usersLevel.indexOf(m.sender) + 1}* from *${usersLevel.length}*
+
+${sortedLevel.slice(0, len).map(({ jid, level }, i) => `*${i + 1}.* ${participants.some(p => areJidsSameUser(jid, p.id)) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} ➭ _*Level ${level}*_`).join`\n`}
+`.trim()
+  conn.reply(m.chat, text, m, {
+    mentions: [...usersExp.slice(0, len), ...usersLim.slice(0, len), ...usersLevel.slice(0, len)].filter(v => !participants.some(p => areJidsSameUser(v, p.id) )) 
+})
+ 
+}
+handler.help = ['leaderboard']
+handler.tags = ['econ']
+handler.command = ['leaderboard', 'lb', 'top'] 
 
 export default handler
 
-function isNumber(number) {
-    if (!number) return number
-    number = parseInt(number)
-    return typeof number == 'number' && !isNaN(number)
+function sort(property, ascending = true) {
+  if (property) return (...args) => args[ascending & 1][property] - args[!ascending & 1][property]
+  else return (...args) => args[ascending & 1] - args[!ascending & 1]
 }
+
+function toNumber(property, _default = 0) {
+  if (property) return (a, i, b) => {
+    return {...b[i], [property]: a[property] === undefined ? _default : a[property]}
+  }
+  else return a => a === undefined ? _default : a
+}
+
+function enumGetKey(a) {
+  return a.jid
+    }
