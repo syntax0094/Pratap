@@ -99,7 +99,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   };
   
   handler.help = ['gfx1', 'gfx2', 'gfx3', 'gfx4', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'gfx11', 'gfx12'];
-  handler.tags = ['maker'];
+  handler.tags = ['vip','maker'];
   handler.command = /^(gfx1|gfx2|gfx3|gfx4|gfx5|gfx6|gfx7|gfx8|gfx9|gfx10|gfx11|gfx12)$/i;
   handler.diamond = false;
   
