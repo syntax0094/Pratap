@@ -727,14 +727,14 @@ export async function participantsUpdate({ id, participants, action }) {
                   ppgp = await this.profilePictureUrl(id, 'image');
                 } catch (error) {
                   console.error(`Error retrieving profile picture: ${error}`);
-                  pp = 'https://imgur.com/a/Bx5kcZd.jpeg'; // Assign default image URL
-                  ppgp = 'https://imgur.com/a/Bx5kcZd.jpeg'; // Assign default image URL
+                  pp = 'https://imgur.com/7MHB9ep.jpeg'; // Assign default image URL
+                  ppgp = 'https://imgur.com/7MHB9ep.jpeg'; // Assign default image URL
                 } finally {
                   let text = (chat.sBye || this.bye || conn.bye || 'HELLO, @user')
                     .replace('@user', '@' + user.split('@')[0]);
           
                   let nthMember = groupMetadata.participants.length;
-                  let secondText = `Goodbye, our ${nthMember}th group member`;
+                  let secondText = `Ex ${nthMember} member we miss you 🥺\n\n\nGoodbye, our ${nthMember}th group member`;
           
                   let leaveApiUrl = `https://wecomeapi.onrender.com/leave-image?username=${encodeURIComponent(
                     await this.getName(user)
@@ -743,7 +743,7 @@ export async function participantsUpdate({ id, participants, action }) {
                   )}&memberCount=${encodeURIComponent(
                     nthMember.toString()
                   )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
-                    'https://imgur.com/a/Bx5kcZd.jpeg'
+                    'https://imgur.com/7MHB9ep.jpeg'
                   )}`;
           
                   try {
