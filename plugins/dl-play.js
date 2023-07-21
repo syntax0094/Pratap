@@ -1,6 +1,6 @@
 import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
    let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!text) throw `*⚠️ ENTER THE NAME OF THE SONG YOU ARE LOOKING FOR*\n\n*💡 EXAMPLE*\n*${usedPrefix + command}* Another love `
+  if (!text) throw `*⚠️ ENTER THE NAME OF THE SONG YOU ARE LOOKING FOR*\n\n*💡 EXAMPLE*\n*${usedPrefix + command}* Another love`
   m.react(rwait)
   try {
     var vid = (await youtubeSearch(text)).video[0]
@@ -19,9 +19,12 @@ import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/
    let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
 
     let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
+    let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)   
+let lolh = await lolhuman.json()
+let n = lolh.result.title || 'error'
     var tmb = thumbnail
     var captionvid = `
-  *∘ 📑 TITLE:*
+   *∘ 📑 TITLE:*
    ${title}
    
  *∘ 📆 PUBLISHED:* 
@@ -43,7 +46,7 @@ import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/
     contextInfo: {
     externalAdReply: {
     title: "",
-    body: "SYNTAX-MD",
+    body: "CuriosityBot-MD",
     thumbnailUrl: tmb ,
     sourceUrl: web,
     mediaType: 1,
@@ -53,7 +56,7 @@ import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/
 
     if (durationS > 18000) return conn.sendMessage(m.chat, { text: `*LINK:* ${await cut(url)}\n\n_Durasi terlalu panjang..._\n*Duration Limit!*` }, { quoted: pesan })
     m.react(done)
-    conn.sendMessage(m.chat, { audio: { url: web }, mimetype: 'audio/mpeg', contextInfo: {
+    conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
     externalAdReply: {
     title: title,
     body: "",
@@ -69,7 +72,7 @@ import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/
   }
 }
 handler.command = handler.help = ['play','song','youtube','ytmp3','ds','downloadyt','yta'];
-handler.tags = ['downloader'];
+handler.tags = ['dl'];
 handler.exp = 0;
 handler.diamond = true
 handler.premium = false;
