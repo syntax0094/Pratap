@@ -7,6 +7,7 @@ import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
   'main': 'MAIN',
+  'owner': 'OWNER', 
   'game': 'GAMES',
   'econ': 'LEVEL & ECONOMY',
   'rg': 'REGISTER ',
@@ -29,7 +30,6 @@ let tags = {
   'cmd': 'DATABASE',
   'nsfw': 'NSFW +18', 
   'ansfw': 'NSFW ANIME',
-  'owner': 'OWNER', 
   'advanced': 'ADVANCED',
 }
 const defaultMenu = {
