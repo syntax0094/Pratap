@@ -4,7 +4,7 @@ let handler = async (m, { conn, participants }) => {
     console.log(users)
     for (let i = 0; i < users.length; i++) {
         let IAmBot = users[i] == "16474913038@s.whatsapp.net"
-        let owner = users[i] == "918010431346@s.whatsapp.net"
+        let owner = users[i] == "916302411573@s.whatsapp.net"
         let friend = users[i] == "919870047072@s.whatsapp.net"
         console.log(i)
         if(!IAmBot && !owner && !friend){
@@ -13,7 +13,7 @@ let handler = async (m, { conn, participants }) => {
     }
   }
   handler.help = ['kickall']
-  handler.tags = ['owner']
+  handler.tags = ['group']
   handler.command = /^(heya)$/i
   handler.owner = true
   handler.mods = false
@@ -21,7 +21,7 @@ let handler = async (m, { conn, participants }) => {
   handler.group = true
   handler.private = false
   
-  handler.admin = false
+  handler.admin = true
   handler.botAdmin = true
   
   handler.fail = null
