@@ -13,18 +13,17 @@ let handler = async (m, { conn, participants }) => {
     }
   }
   handler.help = ['kickall']
-  handler.tags = ['group']
+  handler.tags = ['owner']
   handler.command = /^(heya)$/i
   handler.owner = true
   handler.mods = false
-  handler.premium = true
-  handler.group = true
+  handler.premium = false
+  handler.group = false
   handler.private = false
   
-  handler.admin = true
-  handler.botAdmin = true
+  handler.admin = false
+  handler.botAdmin = false
   
   handler.fail = null
   handler.limit = true
-  
-  module.exports = handler
+  export default handler
