@@ -663,7 +663,7 @@ export async function handler(chatUpdate) {
 
 
 
-let smallinput = budy.toLowerCase()
+
     if (smallinput.includes('hello')) {
       reply (`Hello ${pushname}, I am ${BotName}. How can i help you?`);
     } 
