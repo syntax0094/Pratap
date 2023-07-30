@@ -658,6 +658,86 @@ export async function handler(chatUpdate) {
             await this.chatRead(m.chat, m.isGroup ? m.sender : undefined, m.id || m.key.id).catch(() => { })
     }
 }
+
+
+
+
+
+let smallinput = budy.toLowerCase()
+    if (smallinput.includes('hello')) {
+      reply (`Hello ${pushname}, I am ${BotName}. How can i help you?`);
+    } 
+		
+	 if (smallinput=='pratap') {
+        reply (`*My Boss is lost in another Multiverse, I lost contact with him...*`)
+    }
+	
+	
+
+    if( smallinput.includes('konichiwa') || smallinput.includes('konochiwa') || smallinput.includes('konichiba') || smallinput.includes('salute')){
+      reply (`Konichiwa ${pushname}, I am ${BotName}. How can i help you?`);
+    }
+    
+	
+	
+	 if (smallinput=='bot') {
+        reply ('Yes I am Alive 🫂')
+    }
+	
+	 if (smallinput=='ping') {
+        reply ('pong')
+    }
+
+    if (smallinput.includes('good morning') || smallinput.includes('ohayo')) {
+      reply (`Good morning to you too ${pushname} ☺️. Have a great day 😇.`);
+    }
+
+	
+	if (smallinput.includes('good afthernoon')) {
+      reply ('Huh ${pushname} 😇. Wishing you an enjoyable afternoon too.');
+    }
+	
+	   if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('kaise ho')) {
+      reply (`baby *${pushname}* 😇. thik hu aap batao.`);
+    }
+   
+   if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('intro')) {
+      reply (`baby *${pushname}* 😇. iam bot and my owner is mr pratap.`);
+    }
+    
+      if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('love you')) {
+      reply (`baby *${pushname}* 😇. i love you too 😘❤️.`);
+    }
+    
+      if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('khana huva')) {
+      reply (`*${pushname}* 😇. aap khila do na 🥺.`);
+    }
+    
+      if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('baby')) {
+      reply (`hehe*${pushname}* mai tuje kaha se baby lag rahi hu`);
+    }
+    
+      if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('😂🤣')) {
+      reply (`baby *${pushname}* 😇. has mat pagale pyar ho jayega.`);
+    }
+    
+      if (smallinput.includes('niko')|| smallinput.includes('liza') || smallinput.includes('Nixie')) {
+      reply (`yaar*${pushname}* o mare owner ki bastie hai 🌚`);
+    }
+	
+	
+    if (smallinput.includes('good night')) {
+      reply (`Good night to you too ${pushname} 😇. Sleep well and sweet dreams.`);
+    }
+
+    if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('thank')) {
+      reply (`Mention not ${pushname} 😇. I am a bot afterall.`);
+    }
+
+    if (smallinput.includes('sorry')) {
+      reply (`Tatti ke haat dhoye nhi jate or chala paap dhone😤🤣`);
+    }
+	
 /**
  * Handle groups participants update
  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate 
