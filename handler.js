@@ -734,7 +734,7 @@ export async function participantsUpdate({ id, participants, action }) {
                     .replace('@user', '@' + user.split('@')[0]);
           
                   let nthMember = groupMetadata.participants.length;
-                  let secondText = `Ex ${nthMember} member we miss you 🥺\n\n\nGoodbye, our ${nthMember}th group member`;
+                  let secondText = `Ex ${nthMember} member we miss you 🥺\n\n\nSayonara (≧ω≦)ゞ, our ${nthMember}th group member`;
           
                   let leaveApiUrl = `https://wecomeapi.onrender.com/leave-image?username=${encodeURIComponent(
                     await this.getName(user)
