@@ -1,88 +1,30 @@
-import { youtubedl, youtubeSearch, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
-   let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!text) throw `*⚠️ ENTER THE NAME OF THE SONG YOU ARE LOOKING FOR*\n\n*💡 EXAMPLE*\n*${usedPrefix + command}* Another love`
-  m.react(rwait)
-  try {
-    var vid = (await youtubeSearch(text)).video[0]
-    if (!vid) throw '[❗] ERROR COULD NOT DOWNLOAD THE AUDIO...'
-    var { title, 
-          description, 
-          thumbnail, 
-          videoId, 
-          durationH, 
-          durationS,
-          viewH,
-          publishedTime
-                         } = vid
-    var url = 'https://www.youtube.com/watch?v=' + videoId
 
-   let vide = `https://yt.btch.bz/download?URL=${url}&videoName=video`
-
-    let web = `https://yt.btch.bz/downloadAudio?URL=${url}&videoName=video`
-    let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${title}`)   
-let lolh = await lolhuman.json()
-let n = lolh.result.title || 'error'
-    var tmb = thumbnail
-    var captionvid = `
-   *∘ 📑 TITLE:*
-   ${title}
-   
- *∘ 📆 PUBLISHED:* 
-  ${publishedTime}
-  
-  *∘ ⏰ DURATION:* 
-  ${durationH}
-  
-  *∘ 👀 VIEWS* 
-  ${viewH}  
-  
-  *∘ 📡 LINK*  
-  ${url}
-  
-  *∘ 💬 DESCRIPTION* 
-  ${description}`
-    var pesan = await conn.sendMessage(m.chat, {
-    text: captionvid,
-    contextInfo: {
-    externalAdReply: {
-    title: "",
-    body: "CuriosityBot-MD",
-    thumbnailUrl: tmb ,
-    sourceUrl: web,
-    mediaType: 1,
-    showAdAttribution: true,
-    renderLargerThumbnail: true
-    }}})
-
-    if (durationS > 18000) return conn.sendMessage(m.chat, { text: `*LINK:* ${await cut(url)}\n\n_Durasi terlalu panjang..._\n*Duration Limit!*` }, { quoted: pesan })
-    m.react(done)
-    conn.sendMessage(m.chat, { audio: { url: lolh.result.audio.link }, mimetype: 'audio/mpeg', contextInfo: {
-    externalAdReply: {
-    title: title,
-    body: "",
-    thumbnailUrl: tmb,
-    sourceUrl: web,
-    mediaType: 1,
-    showAdAttribution: true,
-    renderLargerThumbnail: true
-    }}} , { quoted: pesan })
-
-  } catch (e) {
-    throw '[❗] ERROR COULD NOT DOWNLOAD THE AUDIO...' 
-  }
+import yts from 'yt-search'
+let handler = async (m, { conn, command, text, usedPrefix }) => {
+	
+	if (!text) throw `✳️ Enter a song title\n\n📌Example *${usedPrefix + command}* Another level`
+	let res = await yts(text)
+	let vid = res.videos[0]
+	if (!vid) throw `✳️ Video/Audio not found`
+	let { title, description, thumbnail, videoId, timestamp, views, ago, url } = vid
+	//const url = 'https://www.youtube.com/watch?v=' + videoId
+	m.react('🎧')
+	let play = `
+	≡ *SYNTAX MUSIC*
+┌──────────────
+▢ 📌 *Title* : ${title}
+▢ 📆 *Published:* ${ago}
+▢ ⌚ *Duration:* ${timestamp}
+▢ 👀 *Views:* ${views}
+└──────────────`
+ await conn.sendButton(m.chat, play, fgig, thumbnail, [
+    ['🎶 MP3', `${usedPrefix}fgmp3 ${url}`],
+    ['🎥 MP4', `${usedPrefix}fgmp4 ${url}`]
+  ], m, rpl)
 }
-handler.command = handler.help = ['play','song','youtube','ytmp3','ds','downloadyt','yta'];
-handler.tags = ['dl'];
-handler.exp = 0;
-handler.diamond = true
-handler.premium = false;
+handler.help = ['play']
+handler.tags = ['dl']
+handler.command = ['play', 'playvid']
+handler.disabled = true
+
 export default handler
-async function cut(url) {
-  url = encodeURIComponent(url)
-  let res = await fetch(`https://api.botcahx.live/api/linkshort/bitly?link=${url}&apikey=${btc}`)
-  if (!res.ok) throw false
-  return await res.text()
-}
-async function delay(ms) {
-   await new Promise(resolve => setTimeout(resolve, ms));
-}
