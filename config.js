@@ -8,7 +8,7 @@ import axios from 'axios'
 
 global.owner = [
   ['918010431346', '𝙿𝚁𝙰𝚃𝙰𝙿', true],
-  ['919144176429', 'MΣӨЩ 💌✨', true], 
+  ['', '', true], 
   [''] 
 ] //Number of owners
 
@@ -54,7 +54,7 @@ global.botname = '𝚂𝚢𝚗𝚝𝚊𝚡-𝚖𝚍'
 global.wm = '© 𝚂𝚈𝙽𝚃𝙰𝚇-𝙼𝙳'
 global.watermark = 'wm'
 global.premium = 'true'
-global.packname = 'MΣӨЩ🧸💌' 
+global.packname = 'Pratap 🧸💌' 
 global.author = '© 𝚂𝚈𝙽𝚃𝙰𝚇-𝙼𝙳' 
 global.igfg = '▢ Follow on Instagram\nhttps://www.instagram.com/pratapp_2714 \n' 
 global.dygp = 'https://chat.whatsapp.com/'
